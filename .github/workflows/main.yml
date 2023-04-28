@@ -52,12 +52,12 @@ jobs:
       needs: build_and_push_to_docker_hub
       steps:
       - name: executing remote ssh commands to deploy
-        uses: appleboy/ssh-action@main
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          # passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
+          passphrase: ${{ secrets.PASSPHRASE }} # Если ваш ssh-ключ защищён фразой-паролем
           script: |
             # Выполняет pull образа с DockerHub
             sudo docker pull gusevskiy/infra_action
