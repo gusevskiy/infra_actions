@@ -1,0 +1,20 @@
+name: CI_infra_actions
+on: 
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    # копирование проекта в контейнер
+    - uses: actions/checkout@v2
+    
+    - name: Run project
+      run: echo 'python manage.py runserver'
+    
+    
+      
+  
